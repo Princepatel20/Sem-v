@@ -1,31 +1,27 @@
-
-<?php
 class Employee {
-    private $name;
-    private $designation;
-    
-    public function acceptDetails() {
-        echo "Enter employee name: ";
-        $this->name = readline();
-        
-        echo "Enter employee designation: ";
-        $this->designation = readline();
+    public $name;
+    public $id;
+    public $salary;
+    public $department;
+
+    public function __construct($name, $id, $salary, $department) {
+        $this->name = $name;
+        $this->id = $id;
+        $this->salary = $salary;
+        $this->department = $department;
     }
-    
-    public function printDetails() {
-        echo "Employee Details:\n";
-        echo "Name: ".$this->name."\n";
-        echo "Designation: ".$this->designation."\n";
+
+    public function accept_details() {
+        $this->name = readline("Enter employee name: ");
+        $this->id = readline("Enter employee ID: ");
+        $this->salary = readline("Enter employee salary: ");
+        $this->department = readline("Enter employee department: ");
+    }
+
+    public function print_details() {
+        echo "Name: " . $this->name . "\n";
+        echo "ID: " . $this->id . "\n";
+        echo "Salary: " . $this->salary . "\n";
+        echo "Department: " . $this->department . "\n";
     }
 }
-
-// Creating an object of the Employee class
-$employee = new Employee();
-
-// Accepting the details
-$employee->acceptDetails();
-
-// Printing the details
-$employee->printDetails();
-?>
-
