@@ -55,3 +55,16 @@ def bubble_sort(arr):
         print("Time Taken: ")
         print(end-start*60*60)
         
+#DrivenCode for Best Case:-
+print("Best Case")
+arr = [11,22,30,42,75,82,89,93,100,234]
+bubble_sort(arr)
+print("Time Taken: ")
+print(end-start*60*60)
+
+#Driven Code for Worst Case:-
+print("Worst Case")
+arr = [234,100,93,89,82,75,42,30,22,11]
+bubble_sort(arr)
+print("Time Taken: ")
+print(end-start*60*60)
