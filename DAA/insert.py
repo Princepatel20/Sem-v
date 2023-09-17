@@ -36,3 +36,29 @@ sorted_dictionary2 = ins(dict2)
 end2 = time.time()
 print("sorted element by using insertion sort is:",sorted_dictionary2)
 print("Time taken by the worst case is:",end2-start2,"sec")
+
+
+#Python program for implementation of Insertion Sort
+Import time
+Start time
+Start=time.time()
+def insertion_sort(arr):
+    n = len(arr)
+    for i in range(1,n):
+        #pass i
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+            arr[j + 1] = key
+            #print the array after each pass
+            print("After pass",i,":",arr)
+        end=time.time()
+
+#Driven Code for Average Case:-
+print("Average Case: ")
+arr = ['D','W','A','S','E','U','G']
+insertion_sort(arr)
+print("Time Taken: ")
+print(end-Start*60*60)
