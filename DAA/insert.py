@@ -62,3 +62,17 @@ arr = ['D','W','A','S','E','U','G']
 insertion_sort(arr)
 print("Time Taken: ")
 print(end-Start*60*60)
+
+#Driven Code for Best Case:-
+print("Best Case: ")
+arr = ['A','D','E','G','S','U','W']
+insertion_sort(arr)
+print("Time Taken: ")
+print(end-Start*60*60)
+
+#Driven Code for Worst Case:-
+print("Worst Case: ")
+arr = ['W','U','S','G','E','D','A']
+insertion_sort(arr)
+print("Time Taken: ")
+print(end-Start*60*60)
