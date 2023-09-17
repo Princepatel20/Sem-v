@@ -33,3 +33,25 @@ sorted_dict2 = bubble_sort(dict2)
 end2 = time.time()
 print("Sorted elements using the bubble sort is: ",sorted_dict2)
 print("Time taken by wrost case is: ", end2-start2,"sec")
+
+
+#Pytho Program for implemention of Bubble Sort
+iimport time
+start=time.time()
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        #pass i
+        for j in range(n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j],arr[j + 1] = arr[j + 1],arr[j]
+            #print the array after each pass
+            print("Pass",i + 1,":",arr)
+        end=time.time()
+        #Driver code for Average Case:-
+        print("Average Case")
+        arr = [89,42,100,93,11,234,30,82,22,75]
+        bubble_sort(arr)
+        print("Time Taken: ")
+        print(end-start*60*60)
+        
