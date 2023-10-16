@@ -1,37 +1,28 @@
-# Define the ingredients
-baking_soda = 0.5 
-pancake_mix = 1
-oil = 1
-milk = 0.75
+from collections import defaultdict
 
-# Heat the griddle
-def heat_griddle():
-  print("Heating griddle...")
+def topological_sort(graph):
+    visited = set()
+    stack = []
 
-# Mix all the ingredients  
-def mix_ingredients(baking_soda, pancake_mix, oil, milk):
-  print("Mixing ingredients...")
+    def visit(node):
+        if node not in visited:
+            visited.add(node)
+            for neighbor in graph[node]:
+                visit(neighbor)
+            stack.append(node)
 
-# Spoon the mix onto a hot griddle
-def spoon_mix():
-  print("Spooning mix onto griddle...")
-  
-# Wait for the pancakes to start bubbling
-def wait_for_bubbles():
-  print("Waiting for bubbles...")
-  
-# Turn the pancakes over and cook until golden brown  
-def cook_until_golden_brown():
-  print("Cooking pancakes until golden brown...")
+    for node in list(graph):
+        visit(node)
 
-# Heat up some syrup
-def heat_syrup():
-  print("Heating up syrup...")
-  
-# Call the functions in order
-heat_griddle()
-mix_ingredients(baking_soda, pancake_mix, oil, milk)  
-spoon_mix()
-wait_for_bubbles()
-cook_until_golden_brown()
-heat_syrup()
+    return stack[::-1]
+
+graph = defaultdict(list)
+graph["heat griddle"].append("mix ingredients")
+graph["mix ingredients"].append("spoon mix onto griddle")
+graph["mix ingredients"].append("heat up syrup")
+graph["spoon mix onto griddle"].append("flip pancakes")
+graph["flip pancakes"].append("cook until golden brown on the bottom")
+
+order_of_steps = topological_sort(graph)
+for step in order_of_steps:
+    print(step)
