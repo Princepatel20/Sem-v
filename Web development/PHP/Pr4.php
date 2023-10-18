@@ -1,34 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Simple Interest Calculator</title>
+
+</head>
+
+<body>
+
+<h1>Simple Interest Calculator</h1>
+
+<form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+
+<label for="loanAmount">Loan Amount:</label>
+
+<input type="number" name="loanAmount" required><br>
+
+<label for="interestRate">Rate of Interest (%):</label>
+
+<input type="number" name="interestRate" required><br>
+
+<label for="years">Number of Years:</label>
+
+<input type="number" name="years" required><br>
+
+<input type="submit" value="Calculate">
+
+</form>
 
 <?php
-// Create an array of persons with IDs and names
-$persons = array(
-    array("id" => 101, "name" => "John"),
-    array("id" => 104, "name" => "Alice"),
-    array("id" => 103, "name" => "Bob"),
-    array("id" => 102, "name" => "Charlie")
-);
 
-// Sort the array in ascending order based on IDs
-usort($persons, function($a, $b) {
-    return $a['id'] <=> $b['id'];
-});
+function calculateSimpleInterest($loanAmount, $interestRate, $years) {
 
-// Change the name where ID is 103
-foreach ($persons as &$person) {
-    if ($person['id'] == 103) {
-        $person['name'] = "David";
+$simpleInterest = ($loanAmount * $interestRate * $years) / 100;
+
+return $simpleInterest;
+
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+$loanAmount = $_POST["loanAmount"];
+
+$interestRate = $_POST["interestRate"];
+
+$years = $_POST["years"];
+
+if (!empty($loanAmount) && !empty($interestRate) && !empty($years)) {
+
+$simpleInterest = calculateSimpleInterest($loanAmount, $interestRate, $years);
+
+echo "Loan Amount: $" . $loanAmount . "<br>";
+
+echo "Rate of Interest: " . $interestRate . "%<br>";
+
+echo "Number of Years: " . $years . "<br>";
+
+echo "Simple Interest: $" . $simpleInterest;
+
+} else {
+
+echo "Please fill in all fields.";
     }
+
 }
 
-// Print the array in tabular format
-echo "<table>\n";
-echo "<tr><th>ID</th><th>Name</th></tr>\n";
-foreach ($persons as $person) {
-    echo "<tr>";
-    echo "<td>".$person['id']."</td>";
-    echo "<td>".$person['name']."</td>";
-    echo "</tr>\n";
-}
-echo "</table>";
 ?>
 
+</body>
+
+</html>
