@@ -1,18 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-</head>
-<body>
-  <h1>Login</h1>
-  <form action="process_login.php" method="POST">
-    <label for="username">Username (Email):</label>
-    <input type="email" id="username" name="username" required><br><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br><br>
-    <input type="submit" value="Login">
-  </form>
-</body>
-</html>
+<?php
+If(isset($_POST)){
+$id = $_POST['employeeName'];
+$salary = $_POST['salary'];
+$designation = $_POST['designation'];
+$email = $_POST['email'];
+$areaOfInterest = $_POST['areaOfInterest'];
+$contactNumber = $_POST['contactNumber'];
+}
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "Employee";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+die("Connection failed: " . mysqli_connect_error());
+}
+$sql = "INSERT INTO emp (emp_Id,salary,designation,email,area,contact)
+VALUES ('$id','$salary','$designation','$email','$areaOfInterest','$contactNumber')";
