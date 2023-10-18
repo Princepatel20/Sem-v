@@ -1,27 +1,24 @@
-<!DOCTYPR html>
-<html>
-<body>
 <?php
 
-interface Shape {
-  public function area($a,$b);
-}
+class Dakota {
 
-class circle implements shape {
-  public function area($r,$b=0) {
-    echo $r*$r*3.14;
-    echo "<br>";
-  }
-}
-class rectangle implements shape
-  {
-    public function area ($a,$b)
-    {
-      echo $a*$b;
-    }
-  }
+public function add($n1, $n2) {
 
-echo "Hello world";
+return $n1 + $n2;}
+
+public function sub($n1, $n2) {
+
+return $n1 - $n2;}}
+
+$DakotaObj = new Dakota();
+
+$result = $DakotaObj->add(10, 30);
+
+$result_sub = $DakotaObj->sub(60, 10);
+echo "The sum is: " . $result;
+
+echo "<br>";
+
+echo "The sub is: ".$result_sub;
+
 ?>
-</body>
-</html>
